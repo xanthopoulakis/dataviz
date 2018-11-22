@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "data": { "url": "https://raw.githubusercontent.com/xanthopoulakis/dataviz/master/housing.json"},
+  "transform": [
+    {
+      "filter":{
+        "field": "construction_year", "gt": 1920
+      }
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "construction_year", "type": "ordinal",
+      "scale": {"rangeStep": 17},
+       "axis": {"title": "Construction Year"}
+    },
+    "x": {
+      "aggregate": "mean", "field": "price_per_m2", "type": "quantitative",
+      "axis": {"title": "Price per m2"}
+    }
+  }
+}
+

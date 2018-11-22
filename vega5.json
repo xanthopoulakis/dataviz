@@ -1,0 +1,48 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+  "width": 500,
+  "height": 500,
+  "data": {"url": "https://raw.githubusercontent.com/xanthopoulakis/dataviz/master/housing.json"},
+  "transform": [
+    {
+      "filter":{
+        "field": "construction_year", "gt": 1920
+      }
+    },
+    {
+      "filter":{
+        "field": "area", "lt": 500
+      }
+    }
+  ],
+  "layer": [
+    {
+      "mark": "point",
+      "encoding": {
+        "x": {"field": "construction_year", "title": "Construction Year", "type": "quantitative", "scale": {"type": "linear", "domain":[1920, 2016]}},
+        "y": {"field": "price_per_m2", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "errorband", "extent": "stdev", "opacity": 0.2},
+      "encoding": {
+        "y": {
+          "field": "price_per_m2",
+          "type": "quantitative",
+          "title": "Price per m2"
+        }
+      }
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "y": {
+          "field": "price_per_m2",
+          "type": "quantitative",
+          "aggregate": "mean"
+        }
+      }
+    }
+  ]
+}
