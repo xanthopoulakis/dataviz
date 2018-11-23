@@ -28,18 +28,7 @@
       },
       "transform": [
         {
-          "filter":{
-            "field": "longitude", "range": [
-              22.91, 22.99
-            ]
-          }
-        },
-        {
-          "filter":{
-            "field": "latitude", "range": [
-              40.59, 40.65
-            ]
-          }
+          "filter": "datum.parking_spot"
         }
       ],
       "projection": {
@@ -57,7 +46,7 @@
           "type": "quantitative"
         },
         "size": {"value": 10},
-        "color": {"field": "type", "scale": "ordinal", "type": "nominal"}
+        "color": {"field": "parking_spot", "scale": {"type": "ordinal"}, "type": "nominal"}
       }
     }
   ]
