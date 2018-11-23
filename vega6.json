@@ -12,7 +12,9 @@
         }
       },
       "projection": {
-        "type": "mercator"
+        "type": "mercator",
+        "rotate": [0,-110,0]
+
       },
       "mark": {
         "type": "geoshape",
@@ -41,7 +43,8 @@
         }
       ],
       "projection": {
-        "type": "mercator"
+        "type": "mercator",
+        "rotate": [0,-110,0]
       },
       "mark": "circle",
       "encoding": {
@@ -59,4 +62,3 @@
     }
   ]
 }
-
